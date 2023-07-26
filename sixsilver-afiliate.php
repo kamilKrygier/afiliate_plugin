@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SIXSILVER afiliate plugin
  * Description: This plugin allows to get external products using API. Plugin gets products without saving them in database (only in cache for 8 hours).
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Kamil Krygier
  * Author URI: https://www.linkedin.com/in/kamil-krygier-132940166
  * Text Domain: sixsilver-afiliate-plugin
@@ -59,7 +59,7 @@
 */
 
 // Function calls API WooCommerce
-function call_woocommerce_api($stock_status, $category, $orderby, $order, $attribute, $attribute_term, $per_page, $min_price, $max_price, $sku, $include, $exclude) {
+function call_woocommerce_api($stock_status, $category, $orderby, $order, $attribute, $attribute_term, $per_page, $min_price, $max_price, $sku, $include, $exclude, $status) {
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -73,7 +73,7 @@ function call_woocommerce_api($stock_status, $category, $orderby, $order, $attri
     }
 
     // Prepare an array of arguments to process
-    $args = compact('stock_status', 'category', 'orderby', 'order', 'attribute', 'attribute_term', 'per_page', 'min_price', 'max_price', 'sku', 'include', 'exclude');
+    $args = compact('stock_status', 'category', 'orderby', 'order', 'attribute', 'attribute_term', 'per_page', 'min_price', 'max_price', 'sku', 'include', 'exclude', 'status');
     
     // Filter the args array to remove empty elements
     $args = array_filter($args, function($value) { return $value !== ''; });
@@ -179,7 +179,8 @@ function register_products_shortcode($atts) {
                                         $atts['max_price'], 
                                         $atts['sku'], 
                                         $atts['include'], 
-                                        $atts['exclude'],);
+                                        $atts['exclude'],
+                                        'publish');
     
     // Check if API call returned any data
     if(empty($products)) {
