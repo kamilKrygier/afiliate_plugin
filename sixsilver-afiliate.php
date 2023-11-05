@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: SIXSILVER afiliate plugin
+ * Plugin Name: Afiliate plugin
  * Description: This plugin allows to get external products using API. Plugin gets products without saving them in database (only in cache for 8 hours).
  * Version: 1.0.1
  * Author: Kamil Krygier
  * Author URI: https://www.linkedin.com/in/kamil-krygier-132940166
- * Text Domain: sixsilver-afiliate-plugin
+ * Text Domain: afiliate-plugin
  * Requires at least: 6.2
  * Requires PHP: 7.4
  */
@@ -21,7 +21,7 @@
  * REMEMBER TO PLACE IT BEFORE LINE "That's all, stop editing! Happy publishing."
  * 
  * 
- * // SIXSILVER Afiliate
+ * // Afiliate Plugin
  * // Your sensitive data
  * $consumer_key = 'your_consumer_key';
  * $consumer_secret = 'your_consumer_secret';
@@ -36,7 +36,7 @@
  *
  * // Store the encrypted data in wp-config.php
  * // Definicja limitu zapytań na sesję
- * define('API_CALL_DOMAIN_URL', 'https://sixsilver.pl');
+ * define('API_CALL_DOMAIN_URL', 'https://yourdomain.com');
  * define('API_CALL_LIMIT', 10);
  * define('ENCRYPTED_CONSUMER_KEY', $encrypted_consumer_key);
  * define('ENCRYPTED_CONSUMER_SECRET', $encrypted_consumer_secret);
@@ -51,7 +51,7 @@
 /**
  * 
  * SHORTCODE EXAMPLE
- * [SIXSILVER_PRODUCTS stock_status=instock category=143 columns=4 orderby=popularity order=desc attribute=pa_kamien attribute_term=218 per_page=8 min_price=100 max_price=1500 sku=S-190-1 include=30889 exclude=54528,54515]
+ * [AFILIATE_PRODUCTS stock_status=instock category=143 columns=4 orderby=popularity order=desc attribute=pa_kamien attribute_term=218 per_page=8 min_price=100 max_price=1500 sku=S-190-1 include=30889 exclude=54528,54515]
  * 
  * POSSIBLE ARGUMENTS:
  * stock_status - string - Limit result set to products with specified stock status. Options: instock, outofstock and onbackorder.
@@ -167,7 +167,7 @@ function register_products_shortcode($atts) {
             'include' => '',
             'exclude' => '',
 
-        ), $atts, 'SIXSILVER_PRODUCTS');
+        ), $atts, 'AFILIATE_PRODUCTS');
         
         // API call
         $products = call_woocommerce_api(   $atts['stock_status'], 
@@ -242,4 +242,4 @@ function register_products_shortcode($atts) {
     }
     return;
 }
-add_shortcode('SIXSILVER_PRODUCTS', 'register_products_shortcode');
+add_shortcode('AFILIATE_PRODUCTS', 'register_products_shortcode');
