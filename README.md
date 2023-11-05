@@ -87,4 +87,4 @@ Replace `'your_consumer_key'`, `'your_consumer_secret'`, and `'your_random_strin
 #### How to get your api keys? 
 Check here: [https://woocommerce.com/document/woocommerce-rest-api/](https://woocommerce.com/document/woocommerce-rest-api/)
 
-3. Go to the WordPress admin dashboard, navigate to Plugins, and activate the "SIXSILVER afiliate plugin".
+3. Go to the WordPress admin dashboard, navigate to Plugins, and activate the "Afiliate plugin".
