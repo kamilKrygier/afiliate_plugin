@@ -1,4 +1,5 @@
 # Attribute terms list
+**This is only example! Check your woccommerce->attributes to get yours**
 
 ## KAMIEŃ
 id: 362,<br>
