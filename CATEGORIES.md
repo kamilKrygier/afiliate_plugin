@@ -1,4 +1,5 @@
 # Categories list
+**This is only example! Check your woccommerce->categories to get yours**
 
 id: 143,<br>
 name: Pierścionki zaręczynowe,<br>
