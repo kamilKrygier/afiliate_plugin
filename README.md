@@ -1,4 +1,4 @@
-# SIXSILVER Affiliate Plugin
+# Affiliate Plugin
 
 This plugin allows to get sixsilver.pl products using the API. The plugin gets products without saving them in the database.
 
